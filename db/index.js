@@ -24,6 +24,16 @@ if (DATABASE_URL && (DATABASE_URL.startsWith("postgres://") || DATABASE_URL.star
   const pgDataPath = path.join(__dirname, "pgdata");
   if (!fs.existsSync(pgDataPath)) {
     fs.mkdirSync(pgDataPath, { recursive: true });
+  } else {
+    // Clean up stale postmaster.pid left behind by abrupt process termination
+    const pidFile = path.join(pgDataPath, "postmaster.pid");
+    if (fs.existsSync(pidFile)) {
+      try {
+        fs.unlinkSync(pidFile);
+      } catch (e) {
+        // Ignore unlink error if already gone
+      }
+    }
   }
 
   const pgliteClient = new PGlite(pgDataPath);

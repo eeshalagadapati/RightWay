@@ -13,32 +13,11 @@ async function seed() {
   console.log("=== Starting Database Migration & Seed ===");
   await initDb();
 
-  // 1. Create or verify Admin User from environment configuration
+  // 1. Create or synchronize Admin User from environment configuration
+  const { syncAdminCredentials } = require("./syncAdmin");
+  await syncAdminCredentials();
   const adminEmail = (process.env.ADMIN_DEFAULT_EMAIL || "").toLowerCase().trim();
-  const adminPassword = process.env.ADMIN_DEFAULT_PASSWORD;
-  const adminName = process.env.ADMIN_DEFAULT_NAME || "Administrator";
-
-  if (!adminEmail || !adminPassword) {
-    throw new Error("[Seed Error] ADMIN_DEFAULT_EMAIL and ADMIN_DEFAULT_PASSWORD must be configured in .env before running the seed script.");
-  }
-
-  let adminUser = (await db.select().from(admins).where(eq(admins.email, adminEmail)))[0];
-
-  if (!adminUser) {
-    console.log(`[Seed] Creating default admin account: ${adminEmail}`);
-    const passwordHash = await argon2.hash(adminPassword, { type: argon2.argon2id });
-    const inserted = await db.insert(admins).values({
-      email: adminEmail,
-      password_hash: passwordHash,
-      name: adminName,
-      role: "admin",
-      is_active: true
-    }).returning();
-    adminUser = inserted[0];
-    console.log(`[Seed] Admin created successfully (ID: ${adminUser.id})`);
-  } else {
-    console.log(`[Seed] Admin already exists (ID: ${adminUser.id})`);
-  }
+  const adminUser = (await db.select().from(admins).where(eq(admins.email, adminEmail)))[0] || (await db.select().from(admins).limit(1))[0];
 
   // 2. Seed Categories (excluding 'latest' per requirement)
   const categoryDefs = [

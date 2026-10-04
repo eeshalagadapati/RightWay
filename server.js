@@ -84,6 +84,13 @@ app.use((err, req, res, next) => {
 async function start() {
   try {
     await initDb();
+
+    // Securely synchronize admin credentials from .env if configured
+    if (process.env.ADMIN_DEFAULT_EMAIL && process.env.ADMIN_DEFAULT_PASSWORD) {
+      const { syncAdminCredentials } = require("./db/syncAdmin");
+      await syncAdminCredentials();
+    }
+
     app.listen(PORT, () => {
       console.log(`[RightWayNews] Server listening at http://localhost:${PORT}`);
       console.log(`[RightWayNews] Public Website: http://localhost:${PORT}/`);
