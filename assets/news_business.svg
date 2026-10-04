@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <linearGradient id="bizBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05192D" />
+      <stop offset="50%" stop-color="#0A2E50" />
+      <stop offset="100%" stop-color="#02599C" />
+    </linearGradient>
+    <linearGradient id="chartGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#28C76F" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#28C76F" stop-opacity="0.6" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="600" height="360" fill="url(#bizBg)" />
+  
+  <!-- Financial Grid Lines -->
+  <g stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1">
+    <line x1="0" y1="80" x2="600" y2="80" />
+    <line x1="0" y1="140" x2="600" y2="140" />
+    <line x1="0" y1="200" x2="600" y2="200" />
+    <line x1="0" y1="260" x2="600" y2="260" />
+    <line x1="100" y1="0" x2="100" y2="360" />
+    <line x1="200" y1="0" x2="200" y2="360" />
+    <line x1="300" y1="0" x2="300" y2="360" />
+    <line x1="400" y1="0" x2="400" y2="360" />
+    <line x1="500" y1="0" x2="500" y2="360" />
+  </g>
+
+  <!-- Stock Growth Filled Area -->
+  <path d="M0 280 L60 250 L140 270 L220 190 L300 220 L380 140 L460 170 L540 80 L600 70 L600 330 L0 330 Z" fill="url(#chartGrad)" />
+  
+  <!-- Glowing Bullish Trend Line -->
+  <path d="M0 280 L60 250 L140 270 L220 190 L300 220 L380 140 L460 170 L540 80 L600 70" fill="none" stroke="#28C76F" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Data Peak Markers -->
+  <circle cx="220" cy="190" r="5" fill="#FFFFFF" stroke="#28C76F" stroke-width="3" />
+  <circle cx="380" cy="140" r="5" fill="#FFFFFF" stroke="#28C76F" stroke-width="3" />
+  <circle cx="540" cy="80" r="7" fill="#F8D15C" stroke="#28C76F" stroke-width="3" />
+
+  <!-- Sensex / Stock Stats Card -->
+  <rect x="40" y="30" width="220" height="75" rx="6" fill="#011B30" stroke="#0099E5" stroke-width="1.5" />
+  <text x="55" y="55" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" fill="#A2DDFF">SENSEX RECORD HIGH</text>
+  <text x="55" y="88" font-family="-apple-system, sans-serif" font-size="24" font-weight="900" fill="#28C76F">84,500.20 ▲ +1.4%</text>
+
+  <!-- Overlay Banner -->
+  <rect x="0" y="325" width="600" height="35" fill="#012540" opacity="0.95" />
+  <text x="20" y="348" font-family="'Noto Sans Telugu', sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">బిజినెస్ స్పెషల్ • స్టాక్ మార్కెట్లు, పరిశ్రమలు &amp; ఆర్థిక వృద్ధి</text>
+</svg>

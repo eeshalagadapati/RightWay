@@ -1,0 +1,1515 @@
+/* ==========================================================================
+   TELUGU NEWS PORTAL - STYLESHEET
+   Based on classic Indian news portal layout with dense content density
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Mallanna&family=Ramabhadra&display=swap');
+
+:root {
+  /* Brand Color Palette */
+  --primary-blue: #02599C;
+  --dark-blue: #01385F;
+  --nav-bg: #0099E5;
+  --home-btn-bg: #00538C;
+  --home-btn-hover: #004373;
+  --nav-hover-blue: #0084C7;
+  --nav-divider: rgba(255, 255, 255, 0.25);
+  --light-blue: #A2DDFF;
+  --search-box-bg: #A2DDFF;
+  --ice-blue: #EEF6FF;
+  
+  --accent-red: #E01E1E;
+  --accent-red-hover: #C51616;
+  --accent-yellow: #F8D15C;
+  
+  --text-primary: #111111;
+  --text-secondary: #444444;
+  --text-muted: #666666;
+  --text-light: #FFFFFF;
+  
+  --border-color: #D8D8D8;
+  --border-light: #EBEBEB;
+  --border-dark: #333333;
+  --background: #FFFFFF;
+  
+  /* Typography Hierarchy: Ramabhadra for Headlines & Prominent UI; Mallanna for Article Content & Reading */
+  --font-telugu-headline: 'Ramabhadra', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-telugu-body: 'Mallanna', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-telugu: var(--font-telugu-headline);
+  --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Layout Dimensions */
+  --max-content-width: 1024px;
+  --site-max-width: 1720px;
+  --header-height: 78px;
+  --nav-height: 38px;
+  --col-gap: 15px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+}
+
+/* Base Reset & Typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-telugu);
+  background-color: var(--background);
+  color: var(--text-primary);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ==========================================================================
+   GLOBAL CONTAINERS
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: var(--max-content-width);
+    padding: 0 12px;
+  }
+}
+
+/* ==========================================================================
+   ROW 1: TRENDING BAR
+   ========================================================================== */
+.trending-bar {
+  background-color: var(--primary-blue);
+  color: var(--text-light);
+  height: 27px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+}
+
+.trending-bar__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.trending-bar__left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.trending-bar__label {
+  color: var(--accent-yellow);
+  font-family: var(--font-system);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.trending-bar__right {
+  display: flex;
+  align-items: center;
+}
+
+.search-toggle-btn {
+  background-color: var(--search-box-bg);
+  width: 20px;
+  height: 19px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-blue);
+  transition: background-color 0.15s ease;
+}
+
+.search-toggle-btn:hover {
+  background-color: #BBE7FF;
+}
+
+.search-toggle-btn svg {
+  width: 13px;
+  height: 13px;
+  stroke: var(--dark-blue);
+  stroke-width: 2.4;
+}
+
+/* ==========================================================================
+   ROW 2: BRANDING & UTILITY HEADER
+   ========================================================================== */
+.main-header {
+  padding: 6px 0 8px 0;
+  background-color: var(--background);
+}
+
+.main-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Logo Section */
+.logo-section {
+  flex: 0 0 215px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-section__link {
+  display: inline-block;
+}
+
+.logo-section__img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-section__date {
+  font-family: var(--font-telugu-headline);
+  font-size: 13px;
+  font-weight: 400;
+  color: #222222;
+  margin-top: 2px;
+  letter-spacing: 0.1px;
+}
+
+/* Header Banner Ad */
+.header-ad {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+  min-width: 0;
+}
+
+.header-ad .ad-banner-component,
+.header-ad__banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.header-ad .ad-banner-link {
+  display: block;
+  width: 100%;
+  max-width: 630px;
+  aspect-ratio: 1024 / 104;
+  border: 1px solid #D5E7F7;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.header-ad .ad-banner-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(2, 89, 156, 0.12);
+}
+
+.header-ad .ad-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Header Utilities (Latest / Breaking / E-Paper) */
+.header-utilities {
+  flex: 0 0 142px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.utility-buttons-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+
+.utility-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 2px 2px 2px;
+  font-family: var(--font-system);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #111111;
+  text-align: center;
+  border-right: 1px solid var(--border-color);
+  transition: background-color 0.15s ease;
+  min-height: 44px;
+}
+
+.utility-btn:last-child {
+  border-right: none;
+}
+
+.utility-btn:hover {
+  background-color: #F8F8F8;
+}
+
+.utility-btn__icon {
+  width: 17px;
+  height: 17px;
+  margin-bottom: 1px;
+}
+
+.epaper-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #777777;
+  border-radius: 4px;
+  padding: 2.5px 0;
+  font-family: var(--font-system);
+  font-size: 13px;
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: 0.6px;
+  background-color: #FFFFFF;
+  transition: all 0.15s ease;
+}
+
+.epaper-btn:hover {
+  background-color: #F0F0F0;
+  border-color: #333333;
+}
+
+/* ==========================================================================
+   ROW 3: MAIN NAVIGATION BAR
+   ========================================================================== */
+.main-nav {
+  margin-bottom: 6px;
+}
+
+.main-nav__bar {
+  background-color: var(--nav-bg);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: stretch;
+  height: var(--nav-height);
+  padding: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--nav-divider);
+  flex: 1 1 0;
+}
+
+.nav-item[data-nav-id="home"] {
+  flex: 0 0 54px;
+}
+
+.nav-item:last-child {
+  border-right: none;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 3px;
+  padding: 0 8px;
+  height: 100%;
+  color: var(--text-light);
+  font-family: var(--font-telugu-headline);
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+  text-align: center;
+}
+
+.nav-item:not([data-nav-id="home"]):hover .nav-link {
+  background-color: var(--nav-hover-blue);
+}
+
+.nav-item:not([data-nav-id="home"]).active .nav-link {
+  background-color: #00538C;
+  box-shadow: inset 0 -3px 0 var(--accent-yellow);
+  font-weight: 800;
+}
+
+.nav-item[data-nav-id="home"] .nav-link,
+.nav-link--home {
+  background-color: var(--home-btn-bg);
+  padding: 0;
+  width: 100%;
+  justify-content: center;
+}
+
+.nav-item[data-nav-id="home"].active .nav-link {
+  box-shadow: inset 0 -3px 0 var(--accent-yellow);
+}
+
+.nav-item[data-nav-id="home"]:hover .nav-link,
+.nav-link--home:hover {
+  background-color: var(--home-btn-hover);
+}
+
+.nav-home-icon {
+  width: 16px;
+  height: 16px;
+  fill: var(--accent-yellow);
+}
+
+.nav-arrow {
+  display: inline-block;
+  font-size: 11px;
+  margin-left: 2px;
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover .nav-arrow {
+  transform: translateY(1px);
+}
+
+/* Navigation Dropdown Menu */
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #FFFFFF;
+  min-width: 150px;
+  border: 1px solid var(--border-color);
+  border-top: 2px solid var(--primary-blue);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  border-radius: 0 0 3px 3px;
+}
+
+.nav-item:hover .nav-dropdown {
+  display: block;
+}
+
+.dropdown-link {
+  display: block;
+  padding: 7px 14px;
+  color: var(--text-primary);
+  font-family: var(--font-telugu-headline);
+  font-size: 15.5px;
+  font-weight: 400;
+  border-bottom: 1px solid #F0F0F0;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.dropdown-link:last-child {
+  border-bottom: none;
+}
+
+.dropdown-link:hover {
+  background-color: var(--ice-blue);
+  color: var(--primary-blue);
+}
+
+/* ==========================================================================
+   MAIN CONTENT AREA - 3 COLUMNS LAYOUT
+   Left: ~51.8% | Center: ~21.0% | Right: ~25.6%
+   ========================================================================== */
+.main-content {
+  margin-top: 4px;
+  margin-bottom: 25px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 506px 205px 250px;
+  gap: var(--col-gap);
+  align-items: start;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: FEATURED NEWS CAROUSEL & HORIZONTAL AD
+   ========================================================================== */
+.column-left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* News Carousel */
+.news-carousel {
+  width: 100%;
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+.carousel-viewport {
+  position: relative;
+  width: 100%;
+  height: 226px;
+  background-color: #111111;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.carousel-slide__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Slide Overlay Elements */
+.slide-overlay-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 18px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.badge-text-3d {
+  font-family: var(--font-telugu-headline);
+  font-size: 31px;
+  font-weight: 400;
+  color: #FF0000;
+  text-shadow: 
+    -2px -2px 0 #FFF,  
+     2px -2px 0 #FFF,
+    -2px  2px 0 #FFF,
+     2px  2px 0 #FFF,
+     3px  3px 5px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  display: inline-block;
+}
+
+/* Slide Counter Circle */
+.carousel-counter {
+  position: absolute;
+  top: 7px;
+  right: 12px;
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 1.5px solid #222222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-system);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--accent-red);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  user-select: none;
+}
+
+/* Carousel Navigation Arrows */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 17px;
+  height: 34px;
+  background-color: rgba(20, 20, 20, 0.4);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  user-select: none;
+}
+
+.carousel-nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.carousel-nav-btn--prev {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.carousel-nav-btn--next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.carousel-nav-btn svg {
+  width: 13px;
+  height: 13px;
+  stroke: #FFFFFF;
+  stroke-width: 2.5;
+}
+
+/* Carousel Headline */
+.carousel-headline-wrap {
+  padding: 6px 4px 3px 4px;
+  text-align: center;
+}
+
+.carousel-headline {
+  font-family: var(--font-telugu-headline);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.carousel-headline:hover {
+  color: var(--primary-blue);
+}
+
+/* Carousel Pagination Dots */
+.carousel-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 7px 0;
+}
+
+.pagination-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #D4D4D4;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  padding: 0;
+}
+
+.pagination-dot:hover {
+  background-color: #AAAAAA;
+}
+
+.pagination-dot.active {
+  width: 22px;
+  height: 5px;
+  border-radius: 3px;
+  background-color: var(--accent-red);
+}
+
+/* Left Column Lower Horizontal Banner Ad */
+.horizontal-banner-ad {
+  margin-top: 4px;
+  width: 100%;
+}
+
+.ad-banner-link {
+  display: block;
+  border: 1px solid #B0D6F5;
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: #F7FCFF;
+}
+
+.ad-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   CENTER COLUMN: LATEST NEWS (తాజా వార్తలు)
+   ========================================================================== */
+.column-center {
+  background-color: #FFFFFF;
+}
+
+/* Latest News Header */
+.latest-news-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-bottom: 4px;
+}
+
+.header-decor-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #2884C9);
+}
+
+.header-decor-line--right {
+  background: linear-gradient(to left, transparent, #2884C9);
+}
+
+.latest-news-title {
+  color: var(--accent-red);
+  font-family: var(--font-telugu-headline);
+  font-size: 18.5px;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+}
+
+/* Latest News List */
+.latest-news-box {
+  border: 1px solid var(--border-light);
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.latest-news-list {
+  list-style: none;
+}
+
+.latest-news-item {
+  border-bottom: 1px solid #F0F0F0;
+  padding: 5px 6px;
+}
+
+.latest-news-item:last-child {
+  border-bottom: none;
+}
+
+.latest-news-item__link {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  color: var(--text-primary);
+  font-family: var(--font-telugu-headline);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.45;
+  transition: color 0.15s ease;
+}
+
+.latest-news-item__link:hover {
+  color: var(--primary-blue);
+}
+
+.bullet-square {
+  color: #111111;
+  font-size: 9.5px;
+  line-height: 1.6;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.news-text-content {
+  flex: 1;
+}
+
+.live-badge-text {
+  color: var(--accent-red);
+  font-family: var(--font-telugu-headline);
+  font-weight: 400;
+  margin-right: 2px;
+}
+
+/* Video Play Circular Icon */
+.video-play-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: var(--accent-red);
+  margin-left: 4px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.video-play-badge svg {
+  width: 6px;
+  height: 6px;
+  fill: #FFFFFF;
+  margin-left: 1px;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: SIDEBAR ADS & REGION TABS
+   ========================================================================== */
+.column-right {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+/* Top Sidebar Ad (Horoscope) */
+.sidebar-ad-top {
+  width: 100%;
+}
+
+.sidebar-ad-top .ad-banner-link {
+  border: none;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* Region Tabs (జిల్లాలు, ఆంధ్రప్రదేశ్, తెలంగాణ) */
+.region-tabs-container {
+  width: 100%;
+}
+
+.region-tabs-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin: 3px 0 5px 0;
+}
+
+.region-tab-btn {
+  font-family: var(--font-telugu-headline);
+  font-size: 15px;
+  font-weight: 400;
+  padding: 3.5px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.region-tab-btn--link {
+  color: var(--primary-blue);
+  background: transparent;
+  padding-left: 2px;
+  padding-right: 6px;
+}
+
+.region-tab-btn--link:hover {
+  text-decoration: underline;
+}
+
+.region-tab-btn--red {
+  background-color: var(--accent-red);
+  color: #FFFFFF;
+}
+
+.region-tab-btn--red:hover {
+  background-color: var(--accent-red-hover);
+}
+
+.region-tab-btn--blue {
+  background-color: var(--primary-blue);
+  color: #FFFFFF;
+}
+
+.region-tab-btn--blue:hover {
+  background-color: #024b83;
+}
+
+.region-tab-btn.active {
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Region Mini Headlines (Visible when user selects tab) */
+.region-content-panel {
+  display: none;
+  background-color: #FAFBFD;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 4px 6px;
+  margin-bottom: 6px;
+}
+
+.region-content-panel.active {
+  display: block;
+}
+
+.region-news-item {
+  font-family: var(--font-telugu-headline);
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.45;
+  padding: 4px 0;
+  border-bottom: 1px dashed #E5E5E5;
+  color: #333333;
+}
+
+.region-news-item:last-child {
+  border-bottom: none;
+}
+
+/* Vertical Skyscraper Ad (Neopolis) */
+.sidebar-ad-vertical {
+  width: 100%;
+}
+
+.sidebar-ad-vertical .ad-banner-link {
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   INTERACTIVE SEARCH MODAL / BAR
+   ========================================================================== */
+.search-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+}
+
+.search-modal.open {
+  display: flex;
+}
+
+.search-modal__box {
+  background-color: #FFFFFF;
+  width: 90%;
+  max-width: 550px;
+  border-radius: 6px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.search-modal__header {
+  background-color: var(--primary-blue);
+  color: #FFFFFF;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-telugu-headline);
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.search-modal__close {
+  color: #FFFFFF;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.search-modal__body {
+  padding: 16px;
+}
+
+.search-input-group {
+  display: flex;
+  gap: 8px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 9px 12px;
+  border: 1.5px solid var(--primary-blue);
+  border-radius: 4px;
+  font-family: var(--font-telugu-headline);
+  font-size: 17px;
+  outline: none;
+}
+
+.search-submit-btn {
+  background-color: var(--primary-blue);
+  color: #FFFFFF;
+  padding: 0 18px;
+  border-radius: 4px;
+  font-family: var(--font-telugu-headline);
+  font-weight: 400;
+  font-size: 15.5px;
+}
+
+.search-submit-btn:hover {
+  background-color: var(--dark-blue);
+}
+
+/* ==========================================================================
+   FOOTER (Traditional compact newspaper footer)
+   ========================================================================== */
+.site-footer {
+  background-color: #F8F9FA;
+  border-top: 1px solid var(--border-color);
+  padding: 14px 0;
+  margin-top: 30px;
+  font-family: var(--font-telugu-body);
+  font-size: 15px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 6px;
+  font-family: var(--font-telugu-headline);
+  font-size: 14.5px;
+  font-weight: 400;
+}
+
+.footer-links a:hover {
+  color: var(--primary-blue);
+}
+
+/* ==========================================================================
+   CATEGORY WEBPAGE LAYOUT (Image 1 Specification)
+   ========================================================================== */
+.category-main-content {
+  padding-top: 6px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: 690px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Breadcrumb matching Image 1: HOME » NATIONAL */
+.category-breadcrumb {
+  font-family: var(--font-system);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #555555;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.category-breadcrumb .breadcrumb-link {
+  color: #555555;
+  transition: color 0.15s ease;
+}
+
+.category-breadcrumb .breadcrumb-link:hover {
+  color: var(--primary-blue);
+  text-decoration: underline;
+}
+
+.category-breadcrumb .breadcrumb-separator {
+  color: #888888;
+  font-size: 14px;
+}
+
+.category-breadcrumb .breadcrumb-current {
+  color: #111111;
+  font-weight: 800;
+}
+
+/* Category Heading with Blue Underline Accent matching Image 1 */
+.category-heading-wrap {
+  border-bottom: 1px solid #D8D8D8;
+  margin-bottom: 16px;
+  padding-bottom: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.category-heading {
+  font-family: var(--font-telugu-headline);
+  font-size: 29px;
+  font-weight: 400;
+  color: #111111;
+  line-height: 1.35;
+  padding-bottom: 5px;
+  border-bottom: 3px solid var(--primary-blue);
+  margin-bottom: -1px;
+  display: inline-block;
+  letter-spacing: 0.2px;
+}
+
+/* Category News Cards List matching Image 1 */
+.category-news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.category-news-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 3px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.category-news-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.category-card-thumb-link {
+  flex: 0 0 190px;
+  width: 190px;
+  height: 115px;
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: #F1F5F9;
+  display: block;
+  border: 1px solid #E5E7EB;
+}
+
+.category-card-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.category-news-card:hover .category-card-thumb {
+  transform: scale(1.03);
+}
+
+.category-card-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-card-title {
+  font-family: var(--font-telugu-headline);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #111111;
+  margin-bottom: 6px;
+}
+
+.category-card-title a {
+  color: inherit;
+  transition: color 0.15s ease;
+}
+
+.category-card-title a:hover {
+  color: var(--primary-blue);
+}
+
+.category-card-desc {
+  font-family: var(--font-telugu-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: #444444;
+  line-height: 1.65;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.category-card-meta {
+  font-family: var(--font-telugu-body);
+  font-size: 15.5px;
+  color: #777777;
+  font-weight: 400;
+}
+
+/* Category Load More Button */
+.category-pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.category-more-btn {
+  background-color: #FFFFFF;
+  border: 1px solid var(--primary-blue);
+  color: var(--primary-blue);
+  font-family: var(--font-telugu-headline);
+  font-size: 15.5px;
+  font-weight: 400;
+  padding: 8px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-more-btn:hover {
+  background-color: var(--primary-blue);
+  color: #FFFFFF;
+}
+
+/* Category Sidebar matching Image 1 */
+.category-column-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.category-sidebar-ad-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-ad-label {
+  font-family: var(--font-system);
+  font-size: 12.5px;
+  color: #888888;
+  text-transform: capitalize;
+  margin-bottom: 4px;
+}
+
+.category-sidebar-ad-banner .ad-banner-link {
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.category-sidebar-latest-box {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.category-sidebar-latest-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F8F9FA;
+  padding: 6px 10px;
+  border-bottom: 2px solid var(--primary-blue);
+}
+
+.category-sidebar-latest-title {
+  color: #111111;
+  font-family: var(--font-telugu-headline);
+  font-size: 17.5px;
+  font-weight: 400;
+}
+
+.category-sidebar-latest-more {
+  color: var(--accent-red);
+  font-family: var(--font-telugu-headline);
+  font-size: 14.5px;
+  font-weight: 400;
+  transition: opacity 0.15s ease;
+}
+
+.category-sidebar-latest-more:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+.category-empty-state {
+  padding: 30px;
+  text-align: center;
+  background-color: #F8F9FA;
+  border-radius: 4px;
+  color: #666666;
+  font-size: 17px;
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (Mobile & Tablet)
+   Preserves desktop exactness while cleanly supporting smaller viewports
+   ========================================================================== */
+@media (max-width: 1023px) {
+  .news-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  
+  .category-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .column-left {
+    grid-column: span 2;
+  }
+  
+  .carousel-viewport {
+    height: 280px;
+  }
+  
+  .column-center {
+    grid-column: span 1;
+  }
+  
+  .column-right {
+    grid-column: span 1;
+  }
+  
+  .main-nav__bar {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  
+  .main-nav__bar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .header-ad__img {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 767px) {
+  .trending-bar__ticker {
+    display: none;
+  }
+  
+  .main-header__inner {
+    flex-wrap: wrap;
+  }
+  
+  .logo-section {
+    flex: 1 1 100%;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .header-ad {
+    display: none;
+  }
+  
+  .header-utilities {
+    flex: 1 1 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .utility-buttons-row {
+    width: 140px;
+  }
+  
+  .epaper-btn {
+    width: 100px;
+  }
+  
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-news-card {
+    flex-direction: column;
+  }
+
+  .category-card-thumb-link {
+    width: 100%;
+    height: 180px;
+    flex: none;
+  }
+
+  .column-left,
+  .column-center,
+  .column-right {
+    grid-column: span 1;
+  }
+  
+  .carousel-viewport {
+    height: 220px;
+  }
+  
+  .badge-text-3d {
+    font-size: 24px;
+  }
+}
+
+/* ==========================================================================
+   Article Detail Page Styles
+   ========================================================================== */
+.article-main-content {
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+
+.article-header-wrap {
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.article-detail-title {
+  font-family: var(--font-telugu-headline);
+  font-size: 31px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.article-meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: var(--font-telugu-body);
+  font-size: 17px;
+  color: var(--text-muted);
+}
+
+.article-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta-dot {
+  color: var(--border-color);
+}
+
+.article-cat-badge {
+  display: inline-block;
+  background-color: var(--primary-blue);
+  color: #fff;
+  font-family: var(--font-telugu-headline);
+  font-size: 14.5px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+.article-cat-badge:hover {
+  background-color: var(--dark-blue);
+}
+
+.article-featured-image-box {
+  margin-bottom: 24px;
+}
+
+.article-featured-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.article-image-caption {
+  font-family: var(--font-telugu-body);
+  margin-top: 6px;
+  font-size: 17px;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.article-body-content {
+  font-family: var(--font-telugu-body);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.9;
+  color: #222222;
+  margin-bottom: 30px;
+}
+
+.article-body-content p {
+  font-family: var(--font-telugu-body);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.9;
+  margin-bottom: 18px;
+}
+
+.article-body-content .article-lead {
+  font-family: var(--font-telugu-body);
+  font-size: 24px;
+  font-weight: 600;
+  color: #111111;
+  line-height: 1.85;
+  border-left: 4px solid var(--primary-blue);
+  padding-left: 12px;
+  margin-bottom: 20px;
+}
+
+.article-back-nav {
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.article-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--ice-blue);
+  color: var(--primary-blue);
+  font-family: var(--font-telugu-headline);
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid var(--light-blue);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.article-back-btn:hover {
+  background-color: var(--primary-blue);
+  color: #fff;
+}

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <linearGradient id="cinemaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A0B2E" />
+      <stop offset="50%" stop-color="#3B125C" />
+      <stop offset="100%" stop-color="#02599C" />
+    </linearGradient>
+    <linearGradient id="goldAward" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2B2" />
+      <stop offset="50%" stop-color="#F8D15C" />
+      <stop offset="100%" stop-color="#B8860B" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#cinemaBg)" />
+
+  <!-- Stage Spotlights Cone -->
+  <polygon points="100,0 20,360 220,360" fill="#FFFFFF" opacity="0.08" />
+  <polygon points="500,0 380,360 580,360" fill="#FFFFFF" opacity="0.08" />
+  <polygon points="300,0 180,360 420,360" fill="#F8D15C" opacity="0.12" />
+
+  <!-- Film Clapperboard Left -->
+  <g transform="translate(60, 110)">
+    <rect x="0" y="30" width="130" height="100" fill="#111111" stroke="#FFFFFF" stroke-width="2" rx="4" />
+    <!-- Clapper top stick angled -->
+    <g transform="rotate(-15, 0, 30)">
+      <rect x="0" y="0" width="130" height="25" fill="#111111" stroke="#FFFFFF" stroke-width="2" rx="2" />
+      <polygon points="15,2 30,2 20,23 5,23" fill="#FFFFFF" />
+      <polygon points="45,2 60,2 50,23 35,23" fill="#FFFFFF" />
+      <polygon points="75,2 90,2 80,23 65,23" fill="#FFFFFF" />
+      <polygon points="105,2 120,2 110,23 95,23" fill="#FFFFFF" />
+    </g>
+    <!-- Text on clapper -->
+    <text x="15" y="65" font-family="sans-serif" font-size="12" font-weight="800" fill="#F8D15C">SCENE 26</text>
+    <text x="15" y="90" font-family="sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">TAKE 01</text>
+    <text x="15" y="115" font-family="sans-serif" font-size="10" font-weight="700" fill="#A2DDFF">ROLLING</text>
+  </g>
+
+  <!-- Golden Trophy in Center -->
+  <g transform="translate(260, 50)">
+    <!-- Star at top -->
+    <path d="M40 10 L48 28 L68 28 L52 40 L58 58 L40 46 L22 58 L28 40 L12 28 L32 28 Z" fill="url(#goldAward)" />
+    <!-- Statuette Body -->
+    <path d="M33 58 C33 80, 25 130, 28 170 L52 170 C55 130, 47 80, 47 58 Z" fill="url(#goldAward)" />
+    <!-- Pedestal Base -->
+    <rect x="18" y="170" width="44" height="20" fill="url(#goldAward)" rx="2" />
+    <rect x="10" y="190" width="60" height="35" fill="#111111" stroke="url(#goldAward)" stroke-width="2" rx="3" />
+    <text x="18" y="212" font-family="sans-serif" font-size="10" font-weight="800" fill="#F8D15C">CINEMA</text>
+  </g>
+
+  <!-- Film Reel Right -->
+  <g transform="translate(420, 110)">
+    <circle cx="65" cy="65" r="55" fill="#222222" stroke="#FFFFFF" stroke-width="4" />
+    <circle cx="65" cy="65" r="45" fill="none" stroke="#F8D15C" stroke-width="2" />
+    <!-- Holes -->
+    <circle cx="65" cy="30" r="12" fill="url(#cinemaBg)" />
+    <circle cx="65" cy="100" r="12" fill="url(#cinemaBg)" />
+    <circle cx="30" cy="65" r="12" fill="url(#cinemaBg)" />
+    <circle cx="100" cy="65" r="12" fill="url(#cinemaBg)" />
+    <circle cx="65" cy="65" r="14" fill="#E01E1E" />
+  </g>
+
+  <!-- Overlay Banner -->
+  <rect x="0" y="325" width="600" height="35" fill="#012540" opacity="0.95" />
+  <text x="20" y="348" font-family="'Noto Sans Telugu', sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">సినిమా రంగం • టాలీవుడ్ బాక్సాఫీస్ విశేషాలు &amp; మూవీ అప్‌డేట్స్</text>
+</svg>

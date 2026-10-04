@@ -1,0 +1,32 @@
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+logs/
+
+# Database data
+db/pgdata/
+
+# Uploads (preserve directory with .gitkeep)
+uploads/*
+!uploads/.gitkeep
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build & Test artifacts
+coverage/
+dist/
+build/
+*.tmp
+*.temp
+

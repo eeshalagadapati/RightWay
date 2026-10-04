@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <linearGradient id="intlBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#011F38" />
+      <stop offset="50%" stop-color="#024373" />
+      <stop offset="100%" stop-color="#02599C" />
+    </linearGradient>
+    <linearGradient id="globeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A2DDFF" />
+      <stop offset="100%" stop-color="#0099E5" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#intlBg)" />
+
+  <!-- Global Longitude / Latitude Globe -->
+  <g transform="translate(160, 40)">
+    <circle cx="140" cy="130" r="110" fill="none" stroke="url(#globeGrad)" stroke-width="2.5" />
+    <!-- Latitudes -->
+    <ellipse cx="140" cy="130" rx="110" ry="40" fill="none" stroke="url(#globeGrad)" stroke-width="1.5" stroke-dasharray="4,3" />
+    <ellipse cx="140" cy="130" rx="110" ry="80" fill="none" stroke="url(#globeGrad)" stroke-width="1.5" stroke-dasharray="4,3" />
+    <!-- Longitudes -->
+    <ellipse cx="140" cy="130" rx="40" ry="110" fill="none" stroke="url(#globeGrad)" stroke-width="1.5" />
+    <ellipse cx="140" cy="130" rx="80" ry="110" fill="none" stroke="url(#globeGrad)" stroke-width="1.5" />
+    <line x1="140" y1="20" x2="140" y2="240" stroke="url(#globeGrad)" stroke-width="1.5" />
+    <line x1="30" y1="130" x2="250" y2="130" stroke="url(#globeGrad)" stroke-width="2" />
+    
+    <!-- Glowing Connection Nodes -->
+    <circle cx="140" cy="90" r="6" fill="#F8D15C" />
+    <circle cx="80" cy="130" r="5" fill="#28C76F" />
+    <circle cx="190" cy="150" r="6" fill="#E01E1E" />
+    <line x1="140" y1="90" x2="190" y2="150" stroke="#F8D15C" stroke-width="1.5" stroke-dasharray="2,2" />
+    <line x1="80" y1="130" x2="140" y2="90" stroke="#28C76F" stroke-width="1.5" stroke-dasharray="2,2" />
+  </g>
+
+  <!-- International Conference Flags Row Silhouette -->
+  <g transform="translate(50, 240)">
+    <line x1="0" y1="40" x2="500" y2="40" stroke="#FFFFFF" stroke-width="2" opacity="0.4" />
+    <!-- Flag Poles & Pennants -->
+    <line x1="50" y1="0" x2="50" y2="40" stroke="#A2DDFF" stroke-width="2" />
+    <rect x="52" y="2" width="28" height="18" fill="#E01E1E" rx="1" />
+    
+    <line x1="130" y1="0" x2="130" y2="40" stroke="#A2DDFF" stroke-width="2" />
+    <rect x="132" y="2" width="28" height="18" fill="#F8D15C" rx="1" />
+    
+    <line x1="210" y1="0" x2="210" y2="40" stroke="#A2DDFF" stroke-width="2" />
+    <rect x="212" y="2" width="28" height="18" fill="#28C76F" rx="1" />
+    
+    <line x1="290" y1="0" x2="290" y2="40" stroke="#A2DDFF" stroke-width="2" />
+    <rect x="292" y="2" width="28" height="18" fill="#0099E5" rx="1" />
+    
+    <line x1="370" y1="0" x2="370" y2="40" stroke="#A2DDFF" stroke-width="2" />
+    <rect x="372" y="2" width="28" height="18" fill="#FFFFFF" rx="1" />
+    
+    <line x1="450" y1="0" x2="450" y2="40" stroke="#A2DDFF" stroke-width="2" />
+    <rect x="452" y="2" width="28" height="18" fill="#F8D15C" rx="1" />
+  </g>
+
+  <!-- Overlay Banner -->
+  <rect x="0" y="325" width="600" height="35" fill="#012540" opacity="0.95" />
+  <text x="20" y="348" font-family="'Noto Sans Telugu', sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">అంతర్జాతీయం • గ్లోబల్ సదస్సులు, ప్రపంచ దేశాల విధాన నిర్ణయాలు</text>
+</svg>

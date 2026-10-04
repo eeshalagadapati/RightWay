@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <linearGradient id="apSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#01385F" />
+      <stop offset="50%" stop-color="#02599C" />
+      <stop offset="100%" stop-color="#2884C9" />
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#02599C" />
+      <stop offset="100%" stop-color="#012540" />
+    </linearGradient>
+    <linearGradient id="goldCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F8D15C" />
+      <stop offset="100%" stop-color="#E5B834" />
+    </linearGradient>
+  </defs>
+  <!-- Sky -->
+  <rect width="600" height="360" fill="url(#apSky)" />
+  
+  <!-- Modern Government Assembly / High Court Dome Architecture -->
+  <g transform="translate(180, 80)">
+    <!-- Main Stately Dome -->
+    <path d="M70 120 C70 40, 170 40, 170 120 Z" fill="url(#goldCap)" opacity="0.95" />
+    <rect x="110" y="20" width="20" height="30" fill="#F8D15C" />
+    <circle cx="120" cy="15" r="7" fill="#E01E1E" />
+    
+    <!-- Supporting Pillars Building -->
+    <rect x="30" y="120" width="180" height="85" fill="#FFFFFF" rx="3" />
+    <!-- Classical Colonnade -->
+    <rect x="45" y="130" width="8" height="70" fill="#02599C" />
+    <rect x="65" y="130" width="8" height="70" fill="#02599C" />
+    <rect x="85" y="130" width="8" height="70" fill="#02599C" />
+    <rect x="105" y="130" width="8" height="70" fill="#02599C" />
+    <rect x="125" y="130" width="8" height="70" fill="#02599C" />
+    <rect x="145" y="130" width="8" height="70" fill="#02599C" />
+    <rect x="165" y="130" width="8" height="70" fill="#02599C" />
+    <rect x="185" y="130" width="8" height="70" fill="#02599C" />
+  </g>
+
+  <!-- Sea Port / Maritime Coastal Cranes on the Left -->
+  <g transform="translate(20, 160)" stroke="#F8D15C" stroke-width="3" fill="none">
+    <line x1="20" y1="90" x2="50" y2="20" />
+    <line x1="50" y1="20" x2="80" y2="90" />
+    <line x1="50" y1="20" x2="110" y2="20" />
+    <line x1="110" y1="20" x2="110" y2="45" stroke-dasharray="2,2" />
+  </g>
+
+  <!-- Krishna River / Coastal Water -->
+  <rect x="0" y="270" width="600" height="90" fill="url(#waterGrad)" />
+  <!-- Water Waves -->
+  <path d="M0 275 Q150 270 300 275 T600 275 L600 360 L0 360 Z" fill="#01385F" opacity="0.6" />
+  <path d="M0 290 Q150 285 300 290 T600 290 L600 360 L0 360 Z" fill="#012540" opacity="0.8" />
+
+  <!-- Overlay Banner -->
+  <rect x="0" y="325" width="600" height="35" fill="#012540" opacity="0.9" />
+  <text x="20" y="348" font-family="'Noto Sans Telugu', sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">ఆంధ్రప్రదేశ్ పురోగతి • అమరావతి నిర్మాణాలు &amp; విశాఖ పోర్టు</text>
+</svg>
