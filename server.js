@@ -102,4 +102,8 @@ async function start() {
   }
 }
 
-start();
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  start();
+}
