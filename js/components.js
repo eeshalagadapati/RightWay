@@ -162,7 +162,32 @@ const Components = {
   /**
    * Left Column: Featured News Carousel Component & Lower Ad
    */
-  FeaturedNews({ slides, lowerAd }) {
+  FeaturedNews({ slides = [], lowerAd }) {
+    if (!slides || slides.length === 0) {
+      return `
+        <section class="column-left" aria-label="Featured News">
+          <div class="news-carousel news-carousel--empty" id="featuredCarousel" style="min-height: 240px; display: flex; align-items: center; justify-content: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; margin-bottom: 12px;">
+            <div style="text-align: center; color: var(--text-muted, #64748b); padding: 30px 20px;">
+              <p style="font-family: var(--font-telugu); font-size: 15px; margin: 0;">ప్రస్తుతం ప్రత్యేక కథనాలు అందుబాటులో లేవు.</p>
+            </div>
+          </div>
+
+          <!-- Lower Horizontal Ad Banner -->
+          <div class="horizontal-banner-ad">
+            ${Components.AdBanner({
+              id: lowerAd.id,
+              image: lowerAd.image,
+              alt: lowerAd.alt,
+              url: lowerAd.url,
+              width: lowerAd.width,
+              height: lowerAd.height,
+              customClass: "journalism-school-ad"
+            })}
+          </div>
+        </section>
+      `;
+    }
+
     const slidesHtml = slides.map((slide, index) => {
       return `
         <div class="carousel-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
@@ -192,7 +217,7 @@ const Components = {
             ${slidesHtml}
             
             <!-- Slide Counter -->
-            <div class="carousel-counter" id="carouselCounter" aria-live="polite">1/${slides.length || 10}</div>
+            <div class="carousel-counter" id="carouselCounter" aria-live="polite">1/${slides.length}</div>
             
             <!-- Prev / Next Navigation Arrows -->
             <button class="carousel-nav-btn carousel-nav-btn--prev" id="carouselPrevBtn" aria-label="Previous Slide">
@@ -237,8 +262,8 @@ const Components = {
   /**
    * Center Column: Latest News Component (తాజా వార్తలు)
    */
-  LatestNews(items) {
-    const itemsHtml = items.map(item => {
+  LatestNews(items = []) {
+    const itemsHtml = items && items.length > 0 ? items.map(item => {
       return `
         <li class="latest-news-item">
           <a href="${item.url}" class="latest-news-item__link">
@@ -256,7 +281,11 @@ const Components = {
           </a>
         </li>
       `;
-    }).join("");
+    }).join("") : `
+      <li class="latest-news-empty" style="padding: 30px 15px; text-align: center; color: var(--text-muted, #64748b); font-size: 14px; list-style: none;">
+        ప్రస్తుతం తాజా వార్తలు లేవు.
+      </li>
+    `;
 
     return `
       <section class="column-center" aria-label="తాజా వార్తలు">

@@ -45,6 +45,16 @@ app.use("/css", express.static(path.join(__dirname, "css")));
 app.use("/js", express.static(path.join(__dirname, "js")));
 app.use("/admin", express.static(path.join(__dirname, "admin")));
 
+// Ensure database schema is initialized before handling requests (safe for serverless cold-starts)
+app.use(async (req, res, next) => {
+  try {
+    await initDb();
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
+
 // Mount APIs
 app.use("/api/auth", authRoutes);
 app.use("/api", publicRoutes); // /api/home, /api/categories, /api/articles, /api/articles/:slug

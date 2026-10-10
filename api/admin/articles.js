@@ -21,7 +21,19 @@ const articleSchema = z.object({
   published_at: z.string().optional().nullable()
 });
 
-const articlePatchSchema = articleSchema.partial();
+const articlePatchSchema = z.object({
+  title: z.string().min(2, "Title must be at least 2 characters long").optional(),
+  slug: z.string().optional(),
+  description: z.string().optional().nullable(),
+  content_html: z.string().optional().nullable(),
+  category_id: z.number().int().optional().nullable(),
+  featured_image_id: z.number().int().optional().nullable(),
+  status: z.enum(["draft", "published", "archived"]).optional(),
+  is_breaking: z.boolean().optional(),
+  is_live: z.boolean().optional(),
+  has_video: z.boolean().optional(),
+  published_at: z.string().optional().nullable()
+});
 
 // Helper to make slug unique
 async function ensureUniqueSlug(baseSlug, existingId = null) {

@@ -10,8 +10,9 @@ node_modules/
 *.log
 logs/
 
-# Database data
+# Database data & local backups
 db/pgdata/
+db/backup/
 
 # Uploads (preserve directory with .gitkeep)
 uploads/*

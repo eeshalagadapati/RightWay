@@ -467,7 +467,7 @@ async function renderArticleView(slug) {
  */
 function initCarousel(slidesData = []) {
   const carousel = document.getElementById("featuredCarousel");
-  if (!carousel) return;
+  if (!carousel || !slidesData || slidesData.length === 0) return;
 
   const slides = carousel.querySelectorAll(".carousel-slide");
   const dots = carousel.querySelectorAll(".pagination-dot");
@@ -506,6 +506,7 @@ function initCarousel(slidesData = []) {
 
   function startAutoplay() {
     stopAutoplay();
+    if (totalSlides <= 1) return;
     autoplayTimer = setInterval(() => {
       updateSlide(currentIndex + 1);
     }, 4500);
@@ -571,20 +572,28 @@ function initRegionTabs(regionsData) {
       btn.classList.toggle("active", btn.getAttribute("data-region-tab") === regionId);
     });
 
-    if (contentPanel && regionsData.newsData && regionsData.newsData[regionId]) {
-      const items = regionsData.newsData[regionId];
-      contentPanel.innerHTML = items.map(item => {
-        const title = typeof item === "string" ? item : item.title;
-        const url = typeof item === "string" ? "#" : item.url;
-        return `
-          <div class="region-news-item">
-            <a href="${url}" style="color: inherit; text-decoration: none; display: flex; align-items: baseline; gap: 6px;">
-              <span style="color: var(--primary-blue); font-size: 8px;">▶</span>
-              <span>${title}</span>
-            </a>
+    if (contentPanel && regionsData.newsData) {
+      const items = regionsData.newsData[regionId] || [];
+      if (items.length > 0) {
+        contentPanel.innerHTML = items.map(item => {
+          const title = typeof item === "string" ? item : item.title;
+          const url = typeof item === "string" ? "#" : item.url;
+          return `
+            <div class="region-news-item">
+              <a href="${url}" style="color: inherit; text-decoration: none; display: flex; align-items: baseline; gap: 6px;">
+                <span style="color: var(--primary-blue); font-size: 8px;">▶</span>
+                <span>${title}</span>
+              </a>
+            </div>
+          `;
+        }).join("");
+      } else {
+        contentPanel.innerHTML = `
+          <div class="region-news-empty" style="padding: 20px 10px; text-align: center; color: var(--text-muted, #64748b); font-size: 13px;">
+            ఈ ప్రాంతానికి సంబంధించిన వార్తలు ప్రస్తుతానికి లేవు.
           </div>
         `;
-      }).join("");
+      }
       contentPanel.classList.add("active");
     }
   }
